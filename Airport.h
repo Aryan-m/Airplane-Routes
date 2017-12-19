@@ -1,9 +1,6 @@
 // ************** TO DO *************** //
 /*
-    1. add an array to store routes
-    2. add an array to store planes
-    3. delete all arrays in destructor
-    4. initialize arrays in constructor
+    1. initialize arrays in constructor
 */
 
 #ifndef Airport_H
@@ -25,9 +22,15 @@ public:
             population, // how many people are here
             weather, // how is the weather
             routeCount; // how many roads go out from this airport
+       Route *routes;  // list of the routes to this airport
+       Airplane *planes; // list of the planes curently in this aiport
 
       Airport(){}
-      ~Airport(){}
+      ~Airport()
+      {
+        delete routes;
+        delete planes;
+      }
 }; // Airport class
 
 #endif
