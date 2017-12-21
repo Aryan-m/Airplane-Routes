@@ -1,6 +1,5 @@
 // ************** TO DO *************** //
 /*
-
 */
 
 #ifndef Airport_H
@@ -37,4 +36,3 @@ public:
 }; // Airport class
 
 #endif
-
