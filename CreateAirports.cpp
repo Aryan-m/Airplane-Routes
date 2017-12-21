@@ -36,16 +36,15 @@
             DONE A - grab Airport.routeCount from File
             DONE A - grab routeCount for AP[i]
             DONE A - For (number of roads per airport)
-                K - grab Road ID and put in AP[i].Roads[j]
-                K - grab dist and time
+            DONE K - grab Road ID and put in AP[i].Roads[j]
+            DONE K - grab dist and time
                 P - set AP[i].Roads[j].dest to inf;
                 P-  set AP[i].Roads[j].source to temp;
-            K- i++;
+            DONE K- i++;
 */
 
 #include <iostream>
 #include <fstream>
-#include <vector>
 #include "Airport.h"
 #include "Route.h"
 
@@ -67,6 +66,7 @@ int main()
     int apCount,  // holds the number of airports
         routeCount; // holds the total number of routes
     Airport *AP;  // an array to hold airport objects
+    
     int i; // dummy counter
 
 
@@ -82,10 +82,14 @@ int main()
     while(!inf.eof())
     {
         inf >> AP[i].routeCount;
+        AP[i].routes = new Route[routeCount];
         for(int j = 0; j < AP[i].routeCount; j++)
         {
-
+        	inf >> AP[i].routes[j].rdID; //grab road id for each road
+        	inf >> AP[i].routes[j].dist; //grab distance for each road
+        	inf >> AP[i].routes[j].time; //grab time for each road
         }
+       i++;
     }
 
     inf.close();
