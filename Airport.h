@@ -29,8 +29,7 @@ public:
       ~Airport()
       {
         // free memory
-        routes.clear();
-        vector<Route>(routes).swap(routes);
+        delete routes;
       }
 }; // Airport class
 
