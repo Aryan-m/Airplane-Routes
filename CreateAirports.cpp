@@ -27,7 +27,7 @@
     12. I will be in my office all day today and tomorrow. If you have any questions or want any 'A's, please drop by ;P.
 
     ******************* TO DO *****************
-    1. At #APINF32, do the following to create the airport system from inFile. Feel free to modify anything you want. ID:
+    1. At #APINF32, do the following to create the airport system from inFile. Feel free to modify anything you want.
         DONE A - int i = 0;
         DONE A - Airport *Ap = new Airport*[AirportCount];
         DONE A - While(!EOF)
