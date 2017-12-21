@@ -1,12 +1,14 @@
 // ************** TO DO *************** //
 /*
-    1. initialize arrays in constructor
+
 */
 
 #ifndef Airport_H
   #define Airport_H
 
 #include <iostream>
+#include "Route.h"
+#include <vector>
 
 using namespace std;
 
@@ -22,14 +24,15 @@ public:
             population, // how many people are here
             weather, // how is the weather
             routeCount; // how many roads go out from this airport
-       Route *routes;  // list of the routes to this airport
-       Airplane *planes; // list of the planes curently in this aiport
+       vector<Route> routes;  // list of the routes to this airport
+       //Airplane *planes; // list of the planes curently in this aiport
 
       Airport(){}
       ~Airport()
       {
-        delete routes;
-        delete planes;
+        // free memory
+        routes.clear();
+        vector<Route>(routes).swap(routes);
       }
 }; // Airport class
 
