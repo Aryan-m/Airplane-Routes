@@ -6,7 +6,7 @@
 
     2. Name of the file is Airports.txt and is in the same directory as the main file. Program will not run otherwise.
 
-    3. Code IDs in the format "#ID" will be put at code portions that may be re-used.
+    3. Code IDs in the format "#ID" will be put at code portions that need to be refered to later.
 
     4. To access code IDs just copy them, and search for them in the file.
 
@@ -20,7 +20,7 @@
 
     9. Put "DONE" before each numbered item on the "TO DO" list upon completion.
 
-    10. Learn vectors
+    10. Learn vectors (no longer necessary as we will not use vectors, but arrays.
 
     11. Do NOT use teeth during any attempts to get an 'A' or a promotion as it has been proven to not work.
 
