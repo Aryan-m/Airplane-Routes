@@ -31,15 +31,15 @@
         DONE A - int i = 0;
         DONE A - Airport *Ap = new Airport*[AirportCount];
         DONE A - While(!EOF)
-            P - int temp;
-            P - grab AP ID and store in AP[i] and set temp = to it
+        DONE P - int temp;
+        DONE P - grab AP ID and store in AP[i] and set temp = to it
             DONE A - grab Airport.routeCount from File
             DONE A - grab routeCount for AP[i]
             DONE A - For (number of roads per airport)
             DONE K - grab Road ID and put in AP[i].Roads[j]
             DONE K - grab dist and time
-                P - set AP[i].Roads[j].dest to inf;
-                P-  set AP[i].Roads[j].source to temp;
+            DONE P - set AP[i].Roads[j].dest to inf;
+            DONE P-  set AP[i].Roads[j].source to temp;
             DONE K- i++;
 */
 
@@ -81,6 +81,10 @@ int main()
     i = 0; // to go through each airport in AP
     while(!inf.eof())
     {
+        int temp;
+        inf >> AP[i].ID;    //grab AP ID and store in AP[i].ID
+        temp = AP[i].ID;
+       
         inf >> AP[i].routeCount;
         AP[i].routes = new Route[routeCount];
         for(int j = 0; j < AP[i].routeCount; j++)
@@ -88,6 +92,8 @@ int main()
         	inf >> AP[i].routes[j].rdID; //grab road id for each road
         	inf >> AP[i].routes[j].dist; //grab distance for each road
         	inf >> AP[i].routes[j].time; //grab time for each road
+         inf >> AP[i].routes[j].dest; //grab destination for each road
+         AP[i].routes[j].source = temp; //sets temp value to source
         }
        i++;
     }
