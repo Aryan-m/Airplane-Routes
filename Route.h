@@ -7,6 +7,8 @@ class Route
 	int rdID; //ID of roads
 	int dist; //distance of each road
 	int time; //duration of each road
+	int dest; //destination
+	int source; //source
 	protected:
 };
 
