@@ -29,12 +29,11 @@
             DONE P - set AP[i].Roads[j].dest to inf;
             DONE P-  set AP[i].Roads[j].source to temp;
             DONE K- i++;
-
     2. Create the stack functions at #stack98
         - There is a testing section for the stack class at #stest876. Delete when done with testing.
             - DONE A create the skeleton for the class
-            - P create push function and increment maxCount
-            - K create pop function but don't decrement maxCount
+            - P create push function
+            - K create pop function
 */
 
 #include <iostream>
@@ -52,13 +51,20 @@ class stack
     private:
         int index = -1; // index of the element to be popped
         vector<int> storage; // stores the elements
+        int count = 0; // number of elements ever in the stack
     public:
-        int maxCount = 0; // maximum number of elements ever in the stack
-         
+
         // push function stores an element in storage
-   
+
         // pop function pops an element from storage
-   
+
+        // checks if stack is empty, returns true if not empty
+        bool notEmpty()
+        {
+            if (count > 0)
+                return true;
+            return false;
+        }
         // destructor that deletes storage from memory (hopefully)
         ~stack()
         {
@@ -77,7 +83,7 @@ int main()
         cout << i << "   ";
     }
         cout << endl << endl;
-    for (int i = 0; i < st.maxCount; i++)
+    while (st.notEmpty())
         cout << st.pop() << "  ";
     cout << endl;
 // ********************************************************** //
