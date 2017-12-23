@@ -7,16 +7,17 @@
 
 #include <iostream>
 #include "Route.h"
-
+#include <limits>
 using namespace std;
 
 // this class stores the Airport information
 class Airport
 {
 public:
+      bool known; //For D's algorithm
       int   ID, // id for airport
-            x,  // x coordinate
-            y,  // y coordinate
+            dV,
+            pV,
             planesCount, // how many planes are currently here
             time,  // time or day
             population, // how many people are here
@@ -25,7 +26,14 @@ public:
        Route* routes;  // list of the routes to this airport
        //Airplane *planes; // list of the planes curently in this aiport
 
-      Airport(){}
+      Airport() : dv(numeric_limits<int>::max()), pv(-1), known(false) {}
+      /* same as
+      {
+        dv = numeric_limits<int>::max();
+        pv = -1;
+        known = false;
+      }
+      */
       ~Airport()
       {
         // free memory
