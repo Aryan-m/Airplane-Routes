@@ -16,8 +16,8 @@ class Airport
 public:
       bool known; //For D's algorithm
       int   ID, // id for airport
-            dV,
-            pV,
+            dv,
+            pv,
             planesCount, // how many planes are currently here
             time,  // time or day
             population, // how many people are here
