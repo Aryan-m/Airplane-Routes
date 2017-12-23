@@ -15,7 +15,7 @@
     11. Do NOT use teeth during any attempts to get an 'A' or a promotion as it has been proven to not work.
     12. I will be in my office all day today and tomorrow. If you have any questions or want any 'A's, please drop by ;P.
     ******************* TO DO *****************
-    1. At #APINF32, do the following to create the airport system from inFile. Feel free to modify anything you want.
+    1. DONE At #APINF32, do the following to create the airport system from inFile. Feel free to modify anything you want.
         DONE A - int i = 0;
         DONE A - Airport *Ap = new Airport*[AirportCount];
         DONE A - While(!EOF)
@@ -29,17 +29,59 @@
             DONE P - set AP[i].Roads[j].dest to inf;
             DONE P-  set AP[i].Roads[j].source to temp;
             DONE K- i++;
+
+    2. Create the stack functions at #stack98
+        - There is a testing section for the stack class at #stest876. Delete when done with testing.
+            - DONE A create the skeleton for the class
+            - P create push function and increment maxCount
+            - K create pop function but don't decrement maxCount
 */
 
 #include <iostream>
 #include <fstream>
 #include "Airport.h"
 #include "Route.h"
+#include <vector>
 
 using namespace std;
 
+//********** Stack to hold the path*********** //
+//#stack98
+class stack //#stack98
+{
+    private:
+        int index = -1; // index of the element to be popped
+        vector<int> storage; // stores the elements
+    public:
+        int maxCount = 0; // maximum number of elements ever in the stack
+         
+        // push function stores an element in storage
+   
+        // pop function pops an element from storage
+   
+        // destructor that deletes storage from memory (hopefully)
+        ~stack()
+        {
+            storage.erase(storage.begin(), storage.end());
+        }
+
+}; // end stack
+
 int main()
 {
+//#stest876 ********** delete once testing is done ********** //
+    stack st;
+    for (int i = 0; i < 45; i += 5)
+    {
+        st.push(i);
+        cout << i << "   ";
+    }
+        cout << endl << endl;
+    for (int i = 0; i < st.maxCount; i++)
+        cout << st.pop() << "  ";
+    cout << endl;
+// ********************************************************** //
+
 // ***************** OPEN FILE ************ //
     ifstream inf("./Airports.txt");
     if (!inf) // if file could not be found or DNE
