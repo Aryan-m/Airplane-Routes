@@ -45,9 +45,9 @@
 
 using namespace std;
 
-//********** Stack to hold the path*********** //
+//********** Stack to hold the path *********** //
 //#stack98
-class stack //#stack98
+class stack
 {
     private:
         int index = -1; // index of the element to be popped
@@ -69,7 +69,7 @@ class stack //#stack98
 
 int main()
 {
-//#stest876 ********** delete once testing is done ********** //
+//#stest876 ********** delete once testing the  stack class is done ********** //
     stack st;
     for (int i = 0; i < 45; i += 5)
     {
