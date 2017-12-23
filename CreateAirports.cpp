@@ -32,8 +32,8 @@
     2. Create the stack functions at #stack98
         - There is a testing section for the stack class at #stest876. Delete when done with testing.
             - DONE A create the skeleton for the class
-            - P create push function
-            - K create pop function
+            - P create push function (don't forget to take care of index and count)
+            - K create pop function (don't forget to take care of index and count)
 */
 
 #include <iostream>
@@ -49,9 +49,9 @@ using namespace std;
 class stack
 {
     private:
-        int index = -1; // index of the element to be popped
+        int index = -1; // index of the element to be popped (last element)
         vector<int> storage; // stores the elements
-        int count = 0; // number of elements ever in the stack
+        int count = 0; // number of elements in the stack, used for function: notEmpty()
     public:
 
         // push function stores an element in storage
