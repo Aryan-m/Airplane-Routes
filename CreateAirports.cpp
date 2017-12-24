@@ -33,7 +33,7 @@
         - There is a testing section for the stack class at #stest876. Delete when done with testing.
             - DONE A create the skeleton for the class
             - P create push function (don't forget to take care of index and count)
-            - K create pop function (don't forget to take care of index and count)
+            - DONE K create pop function (don't forget to take care of index and count)
 */
 
 #include <iostream>
@@ -57,6 +57,12 @@ class stack
         // push function stores an element in storage
 
         // pop function pops an element from storage
+    int pop()
+        {
+        	count--;
+        	index--;
+        	return storage[index+1];
+		}
 
         // checks if stack is empty, returns true if not empty
         bool notEmpty()
