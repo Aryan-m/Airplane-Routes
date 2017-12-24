@@ -32,7 +32,7 @@
     2. Create the stack functions at #stack98
         - There is a testing section for the stack class at #stest876. Delete when done with testing.
             - DONE A create the skeleton for the class
-            - P create push function (don't forget to take care of index and count)
+            - DONE P create push function (don't forget to take care of index and count)
             - DONE K create pop function (don't forget to take care of index and count)
 */
 
