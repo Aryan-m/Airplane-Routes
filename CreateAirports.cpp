@@ -55,6 +55,12 @@ class stack
     public:
 
         // push function stores an element in storage
+     void push(int n)
+    	{
+       		storage.push_back(n);
+        	count++;
+        	index++;
+    	}
 
         // pop function pops an element from storage
     int pop()
