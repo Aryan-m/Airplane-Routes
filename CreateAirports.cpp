@@ -41,6 +41,7 @@
 #include "Airport.h"
 #include "Route.h"
 #include <vector>
+#include <limits>
 
 using namespace std;
 
@@ -85,9 +86,104 @@ class stack
 
 }; // end stack
 
+// process an airport
+void processAP(int ID, int dep, Airport *AP)
+{
+	int distance = 0;
+	// set distance
+	if (ID == dep)
+	{
+		AP[ID].dv = distance;
+	}
+	else 
+		distance = AP[ID].dv;
+	
+	// process routes
+	for (int i = 0; i < AP[ID].routeCount; i++)
+	{
+		if (AP[AP[ID].routes[i].dest].known)
+			continue;
+		if(AP[ID].routes[i].dist + distance <  AP[AP[ID].routes[i].dest].dv)
+		{
+			AP[AP[ID].routes[i].dest].dv =  AP[ID].routes[i].dist + distance;
+			AP[AP[ID].routes[i].dest].pv =  ID;
+		}
+	}
+	AP[ID].known = true;
+	
+}
+
+// store the path in the stack
+void storePath(stack& st,Airport AP[], int ID)
+{
+	if (AP[ID].dv == 0)
+		return;
+	else
+	{
+		st.push(AP[ID].pv);
+		storePath(st, AP, AP[ID].pv);
+	}
+}
+
+// process the path
+void Dij(int dest, int dep, stack& st, Airport *AP, int apCount)
+{
+	// first airport
+	processAP(dep, dep, AP);
+	
+	// other airports
+	while (!AP[dest].known)
+	{
+		int temp = numeric_limits<int>::max(),
+			ID = 0;
+		
+		//set smallest dv to temp
+		for (int i = 0; i < apCount; i++)
+		{
+			if (AP[i].known)
+				continue;
+			if (temp > AP[i].dv)
+			{
+				temp = AP[i].dv;
+				ID = i;
+			}
+		}
+		processAP(ID, dep, AP);
+	}	
+}
+
+// to process the choice
+void processChoice(Airport AP[], int apCount)
+{
+	int dest,
+		dep;
+	stack st;
+	
+	do {
+		cout << "Please Enter Source: ";
+		cin >> dep;
+		cout << "\nPlease Enter Destination: ";
+		cin >> dest;
+		if (dep >= apCount || dep < 0 || dest >= apCount || dest < 0 )
+		{
+			dest = dep;
+		}
+		if (dep == dest)
+			cout << "\nInvalid Input!\n\n";
+	} while (dep == dest);
+	cout << "\nThe Shortest Path is: ";
+	Dij(dest, dep, st, AP, apCount);
+	st.push(dest);
+	storePath(st, AP, dest);
+	while (st.notEmpty())
+		cout << st.pop() << " ";
+	cout << " which is " << AP[dest].dv << endl;
+		
+}
+
 int main()
 {
-//#stest876 ********** delete once testing the  stack class is done ********** //
+/*#stest876 ********** delete once testing the  stack class is done ********** //
     stack st;
     for (int i = 0; i < 45; i += 5)
     {
@@ -98,7 +194,7 @@ int main()
     while (st.notEmpty())
         cout << st.pop() << "  ";
     cout << endl;
-// ********************************************************** //
+// ********************************************************** */
 
 // ***************** OPEN FILE ************ //
     ifstream inf("./Airports.txt");
@@ -142,5 +238,7 @@ int main()
     }
 
     inf.close();
+	
+	processChoice(AP, apCount);
     return 0;
 } // end of main
